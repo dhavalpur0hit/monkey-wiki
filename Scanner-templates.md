@@ -1,7 +1,7 @@
 The Infection Monkey agent has two steps before attempting to exploit a victim, scanning and fingerprinting, it's possible to customize both steps in the configuration files.
 
 # Scanning
-First is the host scanner. Currently there are two scanners, `PingScanner` and `TcpScanner` both inheriting from `HostScanner`. 
+Currently there are two scanners, `PingScanner` and `TcpScanner` both inheriting from `HostScanner`. 
 
 The sole interface required is the `is_host_alive` interface, which needs to return True/False. 
 
