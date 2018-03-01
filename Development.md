@@ -9,4 +9,5 @@ In order to compile the Monkey for distribution by the Monkey Island, you need t
 This means setting up an environment with Linux 32/64 bit with Python installed and a Windows 64 bit machine with developer tools + 32/64 bit python versions.
 
 # Monkey Island
-The Monkey Island is a Python backend React frontend project. Similar to the agent, the backend's requirements are listed in the matching [requirements.txt](https://github.com/guardicore/monkey/blob/master/monkey_island/requirements.txt). To setup a working front environment, install the npm packages listed in the [package.json](https://github.com/guardicore/monkey/blob/master/monkey_island/cc/ui/package.json) file. 
+The Monkey Island is a Python backend React frontend project. Similar to the agent, the backend's requirements are listed in the matching [requirements.txt](https://github.com/guardicore/monkey/blob/master/monkey_island/requirements.txt).
+To setup a working front environment, run the instructions listed in the [readme.txt](https://github.com/guardicore/monkey/blob/master/monkey_island/readme.txt)
