@@ -29,4 +29,4 @@ The Infection Monkey uses the following techniques and exploits to propagate to 
 
 Getting Started
 ---------------
-Check out the [Setup](https://github.com/guardicore/monkey/wiki/setup) page.
+Check out the [Setup](https://github.com/guardicore/monkey/wiki/setup) page or read a [quick walkthrough](https://www.guardicore.com/infectionmonkey/wt/).
