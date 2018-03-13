@@ -9,8 +9,7 @@ The Monkey itself has been tested on Windows XP, 7, 8.1 and 10. The Linux build 
 
 ### Installation
 
-For off-the-shelf use, download a Debian package from our website and follow the guide [written in our blog](https://www.guardicore.com/2016/07/infection-monkey-loose-2/).
-Warning! The Debian package will uninstall the python library 'bson' because of an issue with pymongo. You can reinstall it later, but the Monkey Island will probably not work.
+For off-the-shelf use, download a Debian package from our website and follow the [guide](https://www.guardicore.com/infectionmonkey/wt/).
 
 To manually set up and the Monkey Island server follow the instructions on [Monkey Island readme](monkey_island/readme.txt). If you wish to compile the binaries yourself, follow the instructions under the [Infection Monkey readme](chaos_monkey/readme.txt).
 
