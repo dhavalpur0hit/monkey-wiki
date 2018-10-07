@@ -28,12 +28,12 @@ And in case it's a type 2 account (group), we add this field:
 There are also changes to an existing collection - 'monkey':
     
 we're adding these fields:
-- critical_services [Array of strings]: States if there are any pre-defind services installed on the machine i.e MSSQL, DC, DNS, etc...
+- critical_services [Array of strings]: States if there are any predefined services installed on the machine i.e MSSQL, DC, DNS, etc...
 - isDC [Boolean]: True if the machine is a DC, this will allow for better future analysis of DC only information.
   
-## What data is used
+## Data Sources
 
-The data gathered from the machine is being sent to the island by the monkey in the shape of a 'system_info' telemetry request. This request holds the MiMikatz and WMI output from the machine with other information gathered by the monkey, and using that information the Monkey Island creates a document for each user and group found on the machine using the fields mentioned above.
+The data gathered from the machine is being sent to the island by the monkey in the shape of a 'system_info' telemetry request. This request holds the Mimikatz and WMI output from the machine with other information gathered by the monkey, and using that information the Monkey Island creates a document for each user and group found on the machine using the fields mentioned above.
 The connections between users and groups on the machine is being created using mostly 3 WMI classes:
  - Win32_GroupUser - a list of (Group, Group\User) pairs for each profile on the machine, i.e ('Administrators', 'MyAdmin').
  - Win32_Group - A list of all of the windows groups saved on the machine.
@@ -42,16 +42,18 @@ The connections between users and groups on the machine is being created using m
 The critical services classification is being done using this WMI class:
 - Win32_Service - a list of all installed services on the machine.
 
-## Data 
+## Monkey Island Data Ingestion Pipeline 
 
-The data processing happens at the stage of 'system_info_collection' telemetry processing, 
+The data processing happens at the stage of 'system_info_collection' telemetry processing and is applied per machine, 
 
-1.  create a list of dictionaries for all the users gathered
-2.  create a list of dictionaries for all the groups gathered
-3.  create a groups hierarchy tree stating which user or group is included in what group.
-4.  push all the users and groups info to the mongo
+1.  Create a list of dictionaries for all the users gathered
+2.  Create a list of dictionaries for all the groups gathered
+3.  Iterate over the GroupUser WMI class to find which user or group is a         member of what group.
+4.  Push all the users and groups info to the mongo
 
-After the data is processed and inserted to the DB, the 'Administrators' groups and the machine id of which the group found on are fetched from the DB and for each entity (user\group) in the group the machine id is being added to its 'admin_on_machines' list.
+There's a chance for each domain group or user that it was already found on another machine in the domain and a mongo doc is already created for it, therefore we need to take it into account and use updates and not flat inserts.
+
+After the data is processed and inserted to the DB, The users and groups that are members of the 'Administrators' group that was fetched from the processed machine are being registered as admins of that machine by adding the machine_id to each user or group 'admin_on_machines' field.
 
     def add_admin(group, machine_id):
 		for entity in group:
@@ -62,13 +64,12 @@ After the data is processed and inserted to the DB, the 'Administrators' groups 
 	#The call is:
 	add_admin(local_admins_group, machine_id)
 
-After this retroactive update happens, for each user we add its parent-group's 'admin_on_machines' list to its own.
+Next stage is to check for each user if the groups that it's a member of, are admin groups in one or more of all the machines collected so far.
+Meaning, if group G is admin on machine X we update user U that is a member of G that U is an admin on machine X in case the user doesn't already have machine X in its list.
 
-    for user in collected_users:
+    For user in collected_users:
 		for group in user.member_of: # the group details is fetched from the DB using the group's SID from the 'member_of' list.
-			user.admin_on_machines += group.admin_on_machines
-
-all of the updates are being pushed to the DB at the end of this process.
+			db.update(user.admin_on_machines $addToSet: group.admin_on_machines) #Pseudo code
 
 ## Report Generation
 
@@ -80,20 +81,24 @@ all of the updates are being pushed to the DB at the end of this process.
 
 2. Shared admin passwords
     
-        db.entities.aggregate(
+        db.entities.aggregate([
+        { 
+             $match: { 'NTLM_secret': {"$exists": true, "$ne": null}
+        }
+        },
         { $group: { 
             // Group by fields to match on (NTLM_secrets)
             _id: { NTLM_secret: "$NTLM_secret" },
         // Count number of matching docs for the group
         count: { $sum:  1 },
         // Save the _id for matching docs
-        docs: { $push: "$_id" }
+        Docs: { $push: "$_id" }
         }},
         // Limit results to duplicates (more than 1 match) 
         { $match: {
             count: { $gt : 1 }
         }}
-        )
+        ])
 
 3. Strong users on critical machines
 
