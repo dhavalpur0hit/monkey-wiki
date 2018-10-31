@@ -27,9 +27,8 @@ And in case it's a type 2 account (group), we add this field:
     
 There are also changes to an existing collection - 'monkey':
     
-we're adding these fields:
+we're adding this field:
 - critical_services [Array of strings]: States if there are any predefined services installed on the machine i.e MSSQL, DC, DNS, etc...
-- isDC [Boolean]: True if the machine is a DC, this will allow for better future analysis of DC only information.
   
 ## Data Sources
 
@@ -48,7 +47,7 @@ The data processing happens at the stage of 'system_info_collection' telemetry p
 
 1.  Create a list of dictionaries for all the users gathered
 2.  Create a list of dictionaries for all the groups gathered
-3.  Iterate over the GroupUser WMI class to find which user or group is a         member of what group.
+3.  Iterate over the GroupUser WMI class to find which user or group is a member of what group.
 4.  Push all the users and groups info to the mongo
 
 There's a chance for each domain group or user that it was already found on another machine in the domain and a mongo doc is already created for it, therefore we need to take it into account and use updates and not flat inserts.
@@ -76,54 +75,55 @@ Meaning, if group G is admin on machine X we update user U that is a member of G
 3 queries needs to be used, one for each situation:
 
 1. Shared local admin
+        In this one we decided to exclude 'Administrator' named users, its a false positive since it makes sense for a user
+        named 'Administrator' to apear on multiple machines.
 
-        db.getCollection('entities').find({'type': 1, 'admin_on_machines.1': {$exists: true}})
+        db.getCollection('groupsandusers').find({'type': USERTYPE, 'name': {'$ne': 'Administrator'},
+                                               'admin_on_machines.1': {'$exists': True}},
+                                              {'admin_on_machines': 1, 'name': 1, 'domain_name': 1})
 
-2. Shared admin passwords
+2. Shared users passwords
     
-        db.entities.aggregate([
-        { 
-             $match: { 'NTLM_secret': {"$exists": true, "$ne": null}
-        }
-        },
-        { $group: { 
-            // Group by fields to match on (NTLM_secrets)
-            _id: { NTLM_secret: "$NTLM_secret" },
-        // Count number of matching docs for the group
-        count: { $sum:  1 },
-        // Save the _id for matching docs
-        Docs: { $push: "$_id" }
-        }},
-        // Limit results to duplicates (more than 1 match) 
-        { $match: {
-            count: { $gt : 1 }
-        }}
+        db.groupsandusers.aggregate([
+        {"$match": {
+                'NTLM_secret': {
+                    "$exists": "true", "$ne": None}
+            }},
+            {
+                "$group": {
+                    "_id": {
+                        "NTLM_secret": "$NTLM_secret"},
+                    "count": {"$sum": 1},
+                    "Docs": {"$push": {'_id': "$_id", 'name': '$name', 'domain_name': '$domain_name',
+                                       'machine_id': '$machine_id'}}
+                }},
+            {'$match': {'count': {'$gt': 1}}}
         ])
 
 3. Strong users on critical machines
 
-        db.getCollection('entities').aggregate([
+        db.getCollection('groupsandusers').aggregate([
         {
-            $unwind: "$admin_on_machines"
-        },
-        {
-            $lookup: {
-                'from': 'monkey',
-                'localField': 'admin_on_machines',
-                'foreignField': '_id',
-                'as': 'critical_machines'
+                '$unwind': '$admin_on_machines'
+            },
+            {
+                '$match': {'type': USERTYPE, 'domain_name': {'$ne': None}}
+            },
+            {
+                '$lookup':
+                    {
+                        'from': 'monkey',
+                        'localField': 'admin_on_machines',
+                        'foreignField': '_id',
+                        'as': 'critical_machine'
+                    }
+            },
+            {
+                '$match': {'critical_machine.critical_services': {'$ne': []}}
+            },
+            {
+                '$unwind': '$critical_machine'
             }
-        },
-        {
-            $unwind: '$critical_machines'
-        },
-        {
-            $group: {
-                '_id': '$_id',
-                'admin_on_machines': {$push: '$admin_on_machines'},
-                'critical_machines': {$push: '$critical_machines'}
-            }
-        }
         
         ])
 
