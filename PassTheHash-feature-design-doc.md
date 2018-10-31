@@ -127,6 +127,4 @@ Meaning, if group G is admin on machine X we update user U that is a member of G
         
         ])
 
-The queries are still in the process of being finished and optimized.
-
-The queries are expected to return data structured as close as it can be to the data the report generation pipeline expects to get, requiring as little as possible processing thus making the whole generation process a lot faster and optimized.
+The queries produces data structured as close as it can be to the data required for the monkey report generation, this optimization reduced the report generation time by about 80% from ~15 seconds to ~3.
