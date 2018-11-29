@@ -26,8 +26,8 @@ Currently implemented Fingerprint modules are:
 
 ## Adding a scanner/fingerprinter
 
-To add a new scanner/fingerprinter, create a new class that inherits from `HostScanner` or `HostFinger` (depending on the interface). The class should be under the network module and should be imported under [network\__init__.py](https://github.com/guardicore/monkey/blob/master/chaos_monkey/network/__init__.py).
+To add a new scanner/fingerprinter, create a new class that inherits from `HostScanner` or `HostFinger` (depending on the interface). The class should be under the network module and should be imported under [`network/__init__.py`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey/network/__init__.py).
 
-To be used by default, two files need to be changed - [`config.py`](https://github.com/guardicore/monkey/blob/master/chaos_monkey/config.py) and [`example.conf`](https://github.com/guardicore/monkey/blob/master/chaos_monkey/example.conf) to add references to the new class.
+To be used by default, two files need to be changed - [`config.py`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey/config.py) and [`example.conf`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey/example.conf) to add references to the new class.
 
-At this point, the Monkey knows how to use the new scanner/fingerprinter but to make it easy to use, the UI needs to be updated. The relevant UI file is [`config.py`](https://github.com/guardicore/monkey/blob/master/monkey_island/cc/services/config.py) (not to be confused with the prior `config.py`)
+At this point, the Monkey knows how to use the new scanner/fingerprinter but to make it easy to use, the UI needs to be updated. The relevant UI file is [`config.py`](https://github.com/guardicore/monkey/blob/master/monkey/monkey_island/cc/services/config.py) (not to be confused with the prior `config.py`)
