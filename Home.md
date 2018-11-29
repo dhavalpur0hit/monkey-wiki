@@ -4,7 +4,7 @@ The Infection Monkey is comprised of two parts:
 * Monkey - A tool which infects other machines and propagates to them
 * Monkey Island - A dedicated UI to visualize the Infection Monkey's progress inside the data center
 
-To read more about the Monkey, visit [http://infectionmonkey.com](http://infectionmonkey.com)
+To read more about the Monkey, visit [https://www.guardicore.com/infectionmonkey/](https://www.guardicore.com/infectionmonkey/).
 
 
 Main Features
