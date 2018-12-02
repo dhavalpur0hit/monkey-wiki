@@ -16,4 +16,4 @@ To manually set up and the Monkey Island server follow the instructions on [Monk
 
 ### Start Infecting
 
-After installing the Infection Monkey on a server of your choice, just browse https://your-server-ip:5000 and follow the instructions to start infecting. .
+After installing the Infection Monkey on a server of your choice, just browse https://your-server-ip:5000 and follow the instructions to start infecting.
