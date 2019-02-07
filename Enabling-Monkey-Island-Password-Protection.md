@@ -1,6 +1,11 @@
-# Setting up authentication
-By default, the Monkey Island doesn't require any form of authentication. To enable it, follow the following instructions:
+# Monkey Island authentication
+By default, the Monkey Island doesn't require any form of authentication.
 
+If you enable it, accessing the Monkey Island UI will redirect you to a login screen where you'll have to enter your username and password.
+
+To enable it, follow the following instructions.
+
+# Setting up authentication
 ### 1. Modify the server_config.json file
 
 Modify the file `/monkey/monkey_island/cc/server_config.json` to be of the following format:
