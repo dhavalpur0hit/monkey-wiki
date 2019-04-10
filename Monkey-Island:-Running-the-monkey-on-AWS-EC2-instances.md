@@ -15,17 +15,17 @@ In order for the Island to successfully view your instances, you'll need to set 
 ### Creating a custom IAM role
 Go to the [AWS IAM roles dashboard](https://console.aws.amazon.com/iam/home?#/roles) and create a new IAM role for EC2, with the `AmazonEC2RoleforSSM` permission. In the end it should like something like this:
 
-![Screenshot 3](monkey-island-aws-screenshot-3.png)
+[[images/monkey-island-aws-screenshot-3.png]]
 
 ### Applying the IAM role to an instance
 For each instance you'd like to access from the island, apply the new IAM role you've just created to the instance. For example: 
 
-![Screenshot 4](monkey-island-aws-screenshot-4.png)
+[[images/monkey-island-aws-screenshot-4.png]]
 
 # Usage
 When you run the monkey island on an AWS instance, the island detects it's running on AWS and present the following option in the _"Run Monkey"_ page, like so:
 
-![Screenshot 1](monkey-island-aws-screenshot-1.png)
+[[images/monkey-island-aws-screenshot-1.png]]
 
 And then you can choose one of the available instances as "patient zero" like so:
 
@@ -34,4 +34,4 @@ And then you can choose one of the available instances as "patient zero" like so
 3. Select the machines you'd like to run the Monkey on
 4. Click "Run on Selected Machines", and watch the monkey go! 🐒 
 
-![Screenshot 2](monkey-island-aws-screenshot-2.png)
+[[images/monkey-island-aws-screenshot-2.png]]
