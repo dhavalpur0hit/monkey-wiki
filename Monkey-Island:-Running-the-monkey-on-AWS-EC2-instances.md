@@ -7,7 +7,7 @@ If your network is deployed on Amazon Web Services (with EC2 instances), and you
 Assuming your network is already set up in AWS EC2, follow these quick steps to get up and running.
 
 ## Monkey Island deployment
-In order to run the Monkeys directly from the Monkey Island server, you need to deploy the Monkey Island server to an AWS EC2 instance in the same network which you want to test. For information about deploying the Monkey Island server, see [https://github.com/guardicore/monkey/wiki/setup](our setup documentation).
+In order to run the Monkeys directly from the Monkey Island server, you need to deploy the Monkey Island server to an AWS EC2 instance in the same network which you want to test. For information about deploying the Monkey Island server, see [setup documentation](https://github.com/guardicore/monkey/wiki/setup).
 
 ## Setup IAM roles
 In order for the Island to successfully view your instances, you'll need to set appropriate IAM roles to your instances. You can read more about IAM roles [in Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html), but it's not necessary in order to follow this setup.
