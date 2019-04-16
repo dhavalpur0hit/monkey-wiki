@@ -13,7 +13,7 @@ In order to run the Monkeys directly from the Monkey Island server, you need to 
 In order for the Island to successfully view your instances, you'll need to set appropriate IAM roles to your instances. You can read more about IAM roles [in Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html), but it's not necessary in order to follow this setup.
 
 ### Creating a custom IAM role
-Go to the [AWS IAM roles dashboard](https://console.aws.amazon.com/iam/home?#/roles) and create a new IAM role for EC2, with the `AmazonEC2RoleforSSM` permission. In the end it should like something like this:
+Go to the [AWS IAM roles dashboard](https://console.aws.amazon.com/iam/home?#/roles) and create a new IAM role for EC2. The role will need to have some specific permissions (see Appendix A for that), but you can just create a role with the `AmazonEC2RoleforSSM` and `AmazonSSMFullAccess` permissions. In the end it should like something like this:
 
 [[images/monkey-island-aws-screenshot-3.png]]
 
@@ -21,6 +21,12 @@ Go to the [AWS IAM roles dashboard](https://console.aws.amazon.com/iam/home?#/ro
 For each instance you'd like to access from the island, apply the new IAM role you've just created to the instance. For example: 
 
 [[images/monkey-island-aws-screenshot-4.png]]
+
+#### Appendix A: Specific policy permissions required
+The IAM role will need to have, at least, the following specific permissions: 
+* `"ssm:SendCommand"`
+* `"ssm:DescribeInstanceInformation"`
+* `"ssm:GetCommandInvocation"`
 
 # Usage
 When you run the monkey island on an AWS instance, the island detects it's running on AWS and present the following option in the _"Run Monkey"_ page, like so:
@@ -35,3 +41,6 @@ And then you can choose one of the available instances as "patient zero" like so
 4. Click "Run on Selected Machines", and watch the monkey go! 🐒 
 
 [[images/monkey-island-aws-screenshot-2.png]]
+
+# Notes
+* The machines which can use IAM roles and be listed MUST be internet connected (or you can set up a proxy for IAM). This is standard AWS practice and you can read about it (and about how to set up the required proxy machines) in AWS IAM documentation. 
