@@ -24,9 +24,13 @@ For each instance you'd like to access from the island, apply the new IAM role y
 
 #### Appendix A: Specific policy permissions required
 The IAM role will need to have, at least, the following specific permissions: 
+##### SSM
 * `"ssm:SendCommand"`
 * `"ssm:DescribeInstanceInformation"`
 * `"ssm:GetCommandInvocation"`
+##### Security Hub
+* `"securityhub:UpdateFindings"`
+* `"securityhub:BatchImportFindings"`
 
 # Usage
 When you run the monkey island on an AWS instance, the island detects it's running on AWS and present the following option in the _"Run Monkey"_ page, like so:
