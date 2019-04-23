@@ -1,6 +1,8 @@
 # When to use this feature
 If your network is deployed on Amazon Web Services (with EC2 instances), and you'd like to run the Infection Monkey in order to test it, this page is for you. You can easily run the monkey on **various instances** within your network - in a secure fashion, **without** feeding the Island with any credentials or running shell commands on the machines you want to test.
 
+The results will be exported to AWS security hub automatically, as well. To see more information about that, see the [security hub documentation](https://github.com/guardicore/monkey/wiki/Infection-Monkey-and-AWS-Security-Hub). 
+
 ![AWS logo](https://www.securview.com/wp-content/uploads/2018/02/aws-logo.png)
 
 # Setup
@@ -33,6 +35,7 @@ The IAM role will need to have, at least, the following specific permissions:
 * `"securityhub:BatchImportFindings"`
 
 # Usage
+## Running the monkey
 When you run the monkey island on an AWS instance, the island detects it's running on AWS and present the following option in the _"Run Monkey"_ page, like so:
 
 [[images/monkey-island-aws-screenshot-1.png]]
