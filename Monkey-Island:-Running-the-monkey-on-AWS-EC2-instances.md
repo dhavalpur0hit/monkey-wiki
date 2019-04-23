@@ -31,9 +31,10 @@ The IAM role will need to have, at least, the following specific permissions:
 * `"ssm:DescribeInstanceInformation"`
 * `"ssm:GetCommandInvocation"`
 ##### For exporting security findings to the Security Hub - security hub
+_Note: these can be set on the Monkey Island machine alone, since it's the only one exporting findings to the AWS secutiry hub._
+
 * `"securityhub:UpdateFindings"`
 * `"securityhub:BatchImportFindings"`
-_Note: this can be set on the Monkey Island machine alone, since it's the only one exporting findings to the AWS secutiry hub._
 
 # Usage
 ## Running the monkey
