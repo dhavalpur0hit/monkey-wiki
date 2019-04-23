@@ -44,3 +44,4 @@ And then you can choose one of the available instances as "patient zero" like so
 
 # Notes
 * The machines which can use IAM roles and be listed MUST be internet connected (or you can set up a proxy for IAM). This is standard AWS practice and you can read about it (and about how to set up the required proxy machines) in AWS IAM documentation. 
+* You can see the monkey in [the AWS marketplace](https://aws.amazon.com/marketplace/pp/B07B3J7K6D).
