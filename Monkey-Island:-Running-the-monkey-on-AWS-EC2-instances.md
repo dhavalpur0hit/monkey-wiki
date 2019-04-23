@@ -15,7 +15,7 @@ In order to run the Monkeys directly from the Monkey Island server, you need to 
 In order for the Island to successfully view your instances, you'll need to set appropriate IAM roles to your instances. You can read more about IAM roles [in Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html), but it's not necessary in order to follow this setup.
 
 ### Creating a custom IAM role
-Go to the [AWS IAM roles dashboard](https://console.aws.amazon.com/iam/home?#/roles) and create a new IAM role for EC2. The role will need to have some specific permissions (see Appendix A for that), but you can just create a role with the `AmazonEC2RoleforSSM` and `AmazonSSMFullAccess` permissions. In the end it should like something like this:
+Go to the [AWS IAM roles dashboard](https://console.aws.amazon.com/iam/home?#/roles) and create a new IAM role for EC2. The role will need to have some specific permissions (see Appendix A for that), but you can just create a role with the `AmazonEC2RoleforSSM`, `AWSSecurityHubFullAccess` and `AmazonSSMFullAccess` pre-made permissions. In the end it should like something like this:
 
 [[images/monkey-island-aws-screenshot-3.png]]
 
@@ -26,13 +26,14 @@ For each instance you'd like to access from the island, apply the new IAM role y
 
 #### Appendix A: Specific policy permissions required
 The IAM role will need to have, at least, the following specific permissions: 
-##### SSM
+##### For executing the Monkey on other machines - SSM
 * `"ssm:SendCommand"`
 * `"ssm:DescribeInstanceInformation"`
 * `"ssm:GetCommandInvocation"`
-##### Security Hub
+##### For exporting security findings to the Security Hub - security hub
 * `"securityhub:UpdateFindings"`
 * `"securityhub:BatchImportFindings"`
+_Note: this can be set on the Monkey Island machine alone, since it's the only one exporting findings to the AWS secutiry hub._
 
 # Usage
 ## Running the monkey
