@@ -12,3 +12,7 @@ You can also run the monkey manually and provide it with a configuration file vi
 # Use cases
 ## Add brute-force usernames and passwords
 To make sure you see the monkey propagating through your network, or to simulate a "phishing" attack or a password leak from your organization, you can add to the monkey's configuration usernames and passwords. The monkey will try to use these usernames and passwords to move through your network. 
+
+## Limiting subnet scanning to speed up monkey propagation
+1. Uncheck "Local network scan"
+2. Add the subnets you'd like the monkey to scan. These should be the local subnets, and you can be as granular as you'd like. 
