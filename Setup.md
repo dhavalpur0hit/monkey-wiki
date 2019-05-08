@@ -4,7 +4,19 @@ Getting Started
 
 ### Requirements
 
-The Monkey Island server has been tested on Ubuntu 14.04,15.04 and 16.04 and Windows Server 2012.
+The Monkey Island server has been tested and is supported on:
+
+* Ubuntu
+  * 14.04
+  * 15.04 
+  * 16.04 
+  * 18.04
+* Windows
+  * Windows Server 2012.
+  * Windows 10 dev environment
+
+It's quite possible the Island will work on your environment as well, even if it's not listed here. If that happens, please let us know! 
+
 The Monkey itself has been tested on Windows XP, 7, 8.1 and 10. The Linux build has been tested on Ubuntu server and Debian (multiple versions).
 
 ### Installation
