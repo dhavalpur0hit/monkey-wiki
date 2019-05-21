@@ -24,6 +24,12 @@ For each instance you'd like to access from the island, apply the new IAM role y
 
 [[images/monkey-island-aws-screenshot-4.png]]
 
+After applying the IAM role you should see this screen: 
+
+[[images/monkey-island-aws-screenshot-5.png]]
+
+**Note: after setting IAM roles, the roles might take a few minutes (up to 10 minutes sometimes) to effectively kick in.** This is how AWS works and is not related to the Monkey implementation. See [this StackOverflow thread for more details.](https://stackoverflow.com/questions/20156043/how-long-should-i-wait-after-applying-an-aws-iam-policy-before-it-is-valid) 
+
 #### Appendix A: Specific policy permissions required
 The IAM role will need to have, at least, the following specific permissions: 
 ##### For executing the Monkey on other machines - SSM
