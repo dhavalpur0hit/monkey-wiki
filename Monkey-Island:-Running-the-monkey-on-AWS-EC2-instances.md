@@ -42,6 +42,11 @@ _Note: these can be set on the Monkey Island machine alone, since it's the only 
 * `"securityhub:UpdateFindings"`
 * `"securityhub:BatchImportFindings"`
 
+## Setup SSM agent
+If your EC2 instances don't have the _SSM agent_ installed, they will not be able to execute SSM commands, which means you won't see them in the AWS machines table on the monkey island. Generally speaking, most new EC2 instances ought to have SSM pre-installed: SSM Agent is installed, by default, on Amazon Linux base AMIs dated 2017.09 and later. SSM Agent is also installed, by default, on Amazon Linux 2, Ubuntu Server 16.04, and Ubuntu Server 18.04 LTS AMIs.
+
+See [Amazon's documentation about working with SSM agents](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html) for more details on how to check if you have an SSM agent and how to manually  install one if you don't have one. 
+
 # Usage
 ## Running the monkey
 When you run the monkey island on an AWS instance, the island detects it's running on AWS and present the following option in the _"Run Monkey"_ page, like so:
