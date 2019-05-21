@@ -1,7 +1,7 @@
 # When to use this feature
 If your network is deployed on Amazon Web Services (with EC2 instances), and you'd like to run the Infection Monkey in order to test it, this page is for you. You can easily run the monkey on **various instances** within your network - in a secure fashion, **without** feeding the Island with any credentials or running shell commands on the machines you want to test.
 
-The results will be exported to AWS security hub automatically, as well. To see more information about that, see the [security hub documentation](https://github.com/guardicore/monkey/wiki/Infection-Monkey-and-AWS-Security-Hub). 
+The results will be exported to AWS security hub automatically, as well. To see more information about that, see the [Infection Monkey and AWS Security Hub documentation](https://github.com/guardicore/monkey/wiki/Infection-Monkey-and-AWS-Security-Hub). 
 
 ![AWS logo](https://www.securview.com/wp-content/uploads/2018/02/aws-logo.png)
 
