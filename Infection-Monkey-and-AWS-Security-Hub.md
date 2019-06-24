@@ -3,6 +3,8 @@ The Infection Monkey integration with the [AWS Security Hub](https://aws.amazon.
 
 [[images/security_hub/security-hub-logo-ink.png]]
 
+The integration will send _all_ Infection Monkey findings (typically low tens of findings) to the security hub at the end of a Monkey breach simulation.
+
 # Setup
 If the correct permissions have been set on the AWS IAM role of the Monkey Island machine (see [IAM roles and Infection Monkey](https://github.com/guardicore/monkey/wiki/Monkey-Island:-Running-the-monkey-on-AWS-EC2-instances)), then the Island will automatically export its findings to the AWS security hub. 
 
