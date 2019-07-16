@@ -36,12 +36,61 @@ The IAM role will need to have, at least, the following specific permissions:
 * `"ssm:SendCommand"`
 * `"ssm:DescribeInstanceInformation"`
 * `"ssm:GetCommandInvocation"`
+Here's the policy of the IAM role, as a JSON object:
+`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:SendCommand",
+                "ssm:DescribeInstanceInformation",
+                "ssm:GetCommandInvocation"
+            ],
+            "Resource": "*"
+        }
+    ]
+}`
 ##### For exporting security findings to the Security Hub - security hub
 _Note: these can be set on the Monkey Island machine alone, since it's the only one exporting findings to the AWS secutiry hub._
 
 * `"securityhub:UpdateFindings"`
 * `"securityhub:BatchImportFindings"`
+Here's the policy for SecurityHub, as a JSON object:
+`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "securityhub:UpdateFindings",
+                "securityhub:BatchImportFindings"
+            ],
+            "Resource": "*"
+        }
+    ]
+}`
 
+The JSON object for both of the policies combined therefore is:
+`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:SendCommand",
+                "ssm:DescribeInstanceInformation",
+                "securityhub:UpdateFindings",
+                "securityhub:BatchImportFindings",
+                "ssm:GetCommandInvocation"
+            ],
+            "Resource": "*"
+        }
+    ]
+}`
 ## Setup SSM agent
 If your EC2 instances don't have the _SSM agent_ installed, they will not be able to execute SSM commands, which means you won't see them in the AWS machines table on the monkey island. Generally speaking, most new EC2 instances ought to have SSM pre-installed; The SSM Agent is installed, by default, on Amazon Linux base AMIs dated 2017.09 and later, and on Amazon Linux 2, Ubuntu Server 16.04, and Ubuntu Server 18.04 LTS AMIs.
 
