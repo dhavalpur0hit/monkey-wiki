@@ -8,7 +8,7 @@ To enable it, follow the following instructions.
 # Setting up authentication
 ### 1. Modify the server_config.json file
 
-Modify the file `/monkey/monkey_island/cc/server_config.json` to be of the following format:
+Modify the file `{monkey_files_dir}/monkey/monkey_island/cc/server_config.json` (monkey files dir, normally, is `/var`) to be of the following format:
 
 ```
 {
