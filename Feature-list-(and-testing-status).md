@@ -2,8 +2,8 @@
 
 | Feature 	| How is it tested 	| Notes 	|
 |---------	|------------------	|-------	|
-| SSH user password	| Monkey Zoo | |
-| SSH keypair	| Monkey Zoo | |
+| SSH user password	| Monkey Zoo | |Tested. SSH_test.conf|
+| SSH keypair	| Monkey Zoo | |Tested. SSH_test.conf|
 | WMI user password | Monkey Zoo | |
 | WMI PTH	| Monkey Zoo | |
 | SMB user password	| Monkey Zoo | |
