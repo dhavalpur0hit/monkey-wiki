@@ -2,8 +2,8 @@
 
 | Feature 	| How is it tested 	| Notes 	|
 |---------	|------------------	|-------	|
-| SSH user password	| Monkey Zoo | SSH_test.conf |
-| SSH keypair	| Monkey Zoo | SSH_test.conf |
+| SSH user password	| Monkey Zoo | SSH.conf |
+| SSH keypair	| Monkey Zoo | SSH.conf |
 | WMI user password | Monkey Zoo | |
 | WMI PTH	| Monkey Zoo | |
 | SMB user password	| Monkey Zoo | SMB_MIMIKATZ.conf |
@@ -24,7 +24,7 @@
 |---------	|------------------	|-------	|
 | Tunneling TCP	| Monkey Zoo | |
 | Tunneling HTTP	| Monkey Zoo | |
-| SSH key-stealing	| Monkey Zoo | |
+| SSH key-stealing	| Monkey Zoo | SSH.conf |
 | Windows password hash stealing (Mimikatz)	| Monkey Zoo | SMB_MIMIKATZ.conf |
 | Process list windows	| NOT TESTING | |
 | Process list linux	| NOT TESTING | | 
