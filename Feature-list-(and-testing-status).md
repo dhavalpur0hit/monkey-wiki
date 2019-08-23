@@ -6,8 +6,8 @@
 | SSH keypair	| Monkey Zoo | SSH.conf |
 | WMI user password | Monkey Zoo | |
 | WMI PTH	| Monkey Zoo | |
-| SMB user password	| Monkey Zoo | SMB_MIMIKATZ.conf |
-| SMB PTH	| Monkey Zoo | SMB_MIMIKATZ.conf |
+| SMB user password	| Monkey Zoo |  |
+| SMB PTH	| Monkey Zoo |  |
 | Sambacry	| Monkey Zoo | |
 | ElasticGroovy	| Monkey Zoo | |
 | OracleWebLogic	| Monkey Zoo | |
@@ -25,7 +25,7 @@
 | Tunneling TCP	| Monkey Zoo | |
 | Tunneling HTTP	| Monkey Zoo | |
 | SSH key-stealing	| Monkey Zoo | SSH.conf |
-| Windows password hash stealing (Mimikatz)	| Monkey Zoo | SMB_MIMIKATZ.conf |
+| Windows password hash stealing (Mimikatz)	| Monkey Zoo |  |
 | Process list windows	| NOT TESTING | |
 | Process list linux	| NOT TESTING | | 
 | Local network interface windows	| NOT TESTING | | 
