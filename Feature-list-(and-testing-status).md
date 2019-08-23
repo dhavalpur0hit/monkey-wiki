@@ -6,8 +6,8 @@
 | SSH keypair	| Monkey Zoo | SSH_test.conf |
 | WMI user password | Monkey Zoo | |
 | WMI PTH	| Monkey Zoo | |
-| SMB user password	| Monkey Zoo | |
-| SMB PTH	| Monkey Zoo | |
+| SMB user password	| Monkey Zoo | SMB_MIMIKATZ.conf |
+| SMB PTH	| Monkey Zoo | SMB_MIMIKATZ.conf |
 | Sambacry	| Monkey Zoo | |
 | ElasticGroovy	| Monkey Zoo | |
 | OracleWebLogic	| Monkey Zoo | |
@@ -25,7 +25,7 @@
 | Tunneling TCP	| Monkey Zoo | |
 | Tunneling HTTP	| Monkey Zoo | |
 | SSH key-stealing	| Monkey Zoo | |
-| Windows password hash stealing	| Monkey Zoo | |
+| Windows password hash stealing (Mimikatz)	| Monkey Zoo | SMB_MIMIKATZ.conf |
 | Process list windows	| NOT TESTING | |
 | Process list linux	| NOT TESTING | | 
 | Local network interface windows	| NOT TESTING | | 
@@ -33,7 +33,7 @@
 | Azure guest agent password stealing	| NOT TESTING | | 
 | Windows service discovery	| NOT TESTING | | 
 | Post breach actions	| Monkey Zoo | |
-| Upgrade windows agent to 64bit	| Monkey Zoo | |
+| Upgrade windows agent to 64bit	| Monkey Zoo | Some blind exploiter, we need to add the ability to build 32-bit monkey in island |
 
 # Island features
 
