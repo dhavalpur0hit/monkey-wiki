@@ -13,8 +13,8 @@
 | OracleWebLogic	| Monkey Zoo | WEBLOGIC.conf |
 | Struts2	| Monkey Zoo | STRUTS2.conf |
 | Hadoop yarn	| Monkey Zoo | HADOOP.conf|
-| mssql	| Monkey Zoo | |
-| shellshock - apache CGI	| Monkey Zoo | |
+| mssql	| Monkey Zoo | MSSQL.conf (test didn't pass has a bug) |
+| shellshock - apache CGI	| Monkey Zoo | SHELLSHOCK.conf |
 | conficker	| Not tested | |
 
 # Other Agent Features
