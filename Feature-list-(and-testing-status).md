@@ -15,7 +15,6 @@
 | Hadoop yarn	| Monkey Zoo | HADOOP.conf|
 | mssql	| Monkey Zoo | |
 | shellshock - apache CGI	| Monkey Zoo | |
-| rdp | Not tested | |
 | conficker	| Not tested | |
 
 # Other Agent Features
