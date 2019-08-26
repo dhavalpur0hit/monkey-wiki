@@ -2,17 +2,17 @@
 
 | Feature 	| How is it tested 	| Notes 	|
 |---------	|------------------	|-------	|
-| SSH user password	| Monkey Zoo | SSH.conf |
+| SSH user password	| Monkey Zoo | SSH.conf, TUNNELING.conf |
 | SSH keypair	| Monkey Zoo | SSH.conf |
 | WMI user password | Monkey Zoo | WMI_MIMIKATZ.conf |
 | WMI PTH	| Monkey Zoo | WMI_MIMIKATZ.conf |
 | SMB user password	| Monkey Zoo | SMB_MIMIKATZ.conf |
 | SMB PTH	| Monkey Zoo | SMB_MIMIKATZ.conf |
-| Sambacry	| Monkey Zoo | |
-| ElasticGroovy	| Monkey Zoo | |
-| OracleWebLogic	| Monkey Zoo | |
-| Struts2	| Monkey Zoo | |
-| Hadoop yarn	| Monkey Zoo | |
+| Sambacry	| UNKNOWN | |
+| ElasticGroovy	| Monkey Zoo | ELASTIC.conf |
+| OracleWebLogic	| Monkey Zoo | WEBLOGIC.conf |
+| Struts2	| Monkey Zoo | STRUTS2.conf |
+| Hadoop yarn	| Monkey Zoo | HADOOP.conf|
 | mssql	| Monkey Zoo | |
 | shellshock - apache CGI	| Monkey Zoo | |
 | rdp | Not tested | |
@@ -22,8 +22,8 @@
 
 | Feature 	| How is it tested 	| Notes 	|
 |---------	|------------------	|-------	|
-| Tunneling TCP	| Monkey Zoo | |
-| Tunneling HTTP	| Monkey Zoo | |
+| Tunneling TCP	| Monkey Zoo | TUNNELING.conf |
+| Tunneling HTTP	| Monkey Zoo | TUNNELING.conf |
 | SSH key-stealing	| Monkey Zoo | SSH.conf |
 | Mimikatz (Windows password hash stealing)	| Monkey Zoo | SMB_MIMIKATZ.conf or WMI_MIMIKATZ.conf |
 | Process list windows	| NOT TESTING | |
