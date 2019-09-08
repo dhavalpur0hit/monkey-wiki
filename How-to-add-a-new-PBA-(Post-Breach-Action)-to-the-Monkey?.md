@@ -48,7 +48,9 @@ You'll need to add your PBA to the `config_schema.py` file, under `post_breach_a
         },
 ```
 
-Now you can choose your PBA when configuring the Monkey on the Monkey island. 
+Now you can choose your PBA when configuring the Monkey on the Monkey island:
+
+[[images/mynewpba.png]]
 
 ### Telemetry processing
 If you wish to process your Post Breach action telemetry (for example, to analyze it for report data), add a processing function to the `POST_BREACH_TELEMETRY_PROCESSING_FUNCS` which can be found at `monkey/monkey_island/cc/services/telemetry/processing/post_breach.py`. You can look at the `process_communicate_as_new_user_telemetry` method as an example. 
