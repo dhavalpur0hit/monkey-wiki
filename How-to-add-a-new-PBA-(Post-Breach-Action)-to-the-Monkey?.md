@@ -18,7 +18,7 @@ class MyNewPba(PBA):
 ```
 class MyNewPba(PBA):
     def __init__(self):
-        super(CommunicateAsNewUser, self).__init__(name="MyNewPba")
+        super(MyNewPba, self).__init__(name="MyNewPba")
 ```
 
 ### Implementation
