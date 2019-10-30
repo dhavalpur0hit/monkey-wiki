@@ -1,4 +1,5 @@
-Getting a working environment up and running for the Infection Monkey is very easy.
+## Deployment scripts
+To setup development environment using scripts look at the readme under /deployment_scripts. If you want to setup it manually or if run into some problems, read further below. 
 
 ## Agent
 
