@@ -1,5 +1,3 @@
-> This information is - as of the time of writing - not relevant to the main branches. 
-
 # How to add a new Zero Trust test to the Monkey? 
 Assuming the Monkey agent is already sending the relevant telemetry, you'll need to add the test in two places.
 
