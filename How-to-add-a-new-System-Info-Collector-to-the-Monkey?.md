@@ -92,7 +92,7 @@ Also, you can add the Collector to be used by default by adding it to the `defau
         "collectors": {
             "MyNewCollector": {"THAT COLLECTORS' DATA": "should usually be a dict"}
         }
-    }
+    },
     "monkey_guid": "123412341234123412341234"
 }
 ```
