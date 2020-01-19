@@ -30,6 +30,10 @@ class MyNewCollector(SystemInfoCollector):
 
 Override the `collect` method with your own implementation. See the `EnvironmentCollector.py` Collector for reference. You can log during collection as well. 
 
+### Configuration
+
+Add the new collector to `infection_monkey/config.py`
+
 ## Island side
 
 ### Configuration
@@ -84,17 +88,6 @@ Also, you can add the Collector to be used by default by adding it to the `defau
 
 ### Telemetry processing
 
-1. Add a process function under `monkey_island/cc/telemetry/processing/system_info_collectors/{DATA_NAME_HERE}.py`. The function should parse the system_info telemetry json. See `processing/system_info_collectors/environment.py` for example. The JSON format is:
+1. Add a process function under `monkey_island/cc/telemetry/processing/system_info_collectors/{DATA_NAME_HERE}.py`. The function should parse the collector's result. See `processing/system_info_collectors/environment.py` for example. 
 
-```json
-{
-    "data": {
-        "collectors": {
-            "MyNewCollector": {"THAT COLLECTORS' DATA": "should usually be a dict"}
-        }
-    },
-    "monkey_guid": "123412341234123412341234"
-}
-```
-
-2. Add that function to the telemetry processing stages list under `monkey_island/cc/services/telemetry/processing/system_info.py:process_system_info_telemetry` function.
+2. Add that function to the dispatcher - `monkey_island/cc/services/telemetry/processing/system_info_collectors/system_info_telemetry_dispatcher.py`.
