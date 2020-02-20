@@ -3,7 +3,7 @@ To setup development environment using scripts look at the readme under /deploym
 
 ## Agent
 
-The Agent, (what we refer as the Monkey), is a single Python project under the [`infection_monkey`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey) folder. Built for Python 2.7, you can get it up and running by setting up a [virtual environment](https://docs.python-guide.org/dev/virtualenvs/) and inside it installing the requirements listed under [`requirements.txt`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey/requirements.txt).
+The Agent, (what we refer as the Monkey), is a single Python project under the [`infection_monkey`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey) folder. Built for Python 3.6, you can get it up and running by setting up a [virtual environment](https://docs.python-guide.org/dev/virtualenvs/) and inside it installing the requirements listed under [`requirements.txt`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey/requirements.txt).
 
 In order to compile the Monkey for distribution by the Monkey Island, you need to run the instructions listed in [`readme.txt`](https://github.com/guardicore/monkey/blob/master/monkey/infection_monkey/readme.txt) on each supported environment.
 
